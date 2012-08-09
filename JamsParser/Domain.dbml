@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="IBC" Class="DomainDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=db3;Initial Catalog=IBC;Integrated Security=True" SettingsObjectName="JamsParser.Properties.Settings" SettingsPropertyName="IBCConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.JAMS_ArticleAuthors" Member="Authors">
+    <Type Name="Author">
+      <Column Name="ArticleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="JAMS_Article_JAMS_ArticleAuthor" Member="Article" ThisKey="ArticleId" OtherKey="Id" Type="Article" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JAMS_Articles" Member="Articles">
+    <Type Name="Article">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DOI" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Volume" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Issue" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Page" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PublishDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Abstract" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="JAMS_Article_JAMS_ArticleAuthor" Member="Authors" ThisKey="Id" OtherKey="ArticleId" Type="Author" />
+      <Association Name="JAMS_Article_JAMS_ArticleKeyword" Member="Keywords" ThisKey="Id" OtherKey="ArticleId" Type="Keyword" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JAMS_ArticleKeywords" Member="Keywords">
+    <Type Name="Keyword">
+      <Column Name="ArticleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(300) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="JAMS_Article_JAMS_ArticleKeyword" Member="Article" ThisKey="ArticleId" OtherKey="Id" Type="Article" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+</Database>

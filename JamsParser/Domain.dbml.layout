@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Domain">
+  <DataContextMoniker Name="/DomainDataContext" />
+  <nestedChildShapes>
+    <classShape Id="b43512a9-2c4a-4ad4-b988-d2a465b75120" absoluteBounds="3.5, 1, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DomainDataContext/Author" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c652091e-aeeb-4c95-b8ec-067a2eca9b82" absoluteBounds="3.515, 1.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dc5b3f5d-45fe-495d-a5e5-ad8fb3dc69d3" absoluteBounds="0.75, 1.25, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/DomainDataContext/Article" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7e520a90-3e5a-47aa-82ae-7c46cf35af3b" absoluteBounds="0.765, 1.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cf2eb479-05bc-4f09-919b-2cd68cd65641" absoluteBounds="3.5, 2.875, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DomainDataContext/Keyword" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9eb934bb-9cc7-4137-a473-e73aa22a6cce" absoluteBounds="3.515, 3.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.72199625651042); (3.5 : 1.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DomainDataContext/Article/JAMS_Article_JAMS_ArticleAuthor" />
+      <nodes>
+        <classShapeMoniker Id="dc5b3f5d-45fe-495d-a5e5-ad8fb3dc69d3" />
+        <classShapeMoniker Id="b43512a9-2c4a-4ad4-b988-d2a465b75120" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.33255126953125); (3.5 : 3.33255126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DomainDataContext/Article/JAMS_Article_JAMS_ArticleKeyword" />
+      <nodes>
+        <classShapeMoniker Id="dc5b3f5d-45fe-495d-a5e5-ad8fb3dc69d3" />
+        <classShapeMoniker Id="cf2eb479-05bc-4f09-919b-2cd68cd65641" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
